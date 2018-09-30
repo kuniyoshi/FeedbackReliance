@@ -2,3 +2,5 @@
 /Temp/
 .idea/
 obj/Debug/
+
+Assets/Plugins/Editor/JetBrains{,.meta}
