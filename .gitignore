@@ -3,4 +3,5 @@
 .idea/
 obj/Debug/
 
-Assets/Plugins/Editor/JetBrains{,.meta}
+Assets/Plugins/Editor/JetBrains
+Assets/Plugins/Editor/JetBrains.meta
