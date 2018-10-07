@@ -14,7 +14,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+      <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -54,7 +54,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\TestScript.cs" />
+      <Compile Include="Assets\Scripts\Fr\Configuration\Pid.cs"/>
+      <Compile Include="Assets\Scripts\Fr\Input.cs"/>
+      <Compile Include="Assets\Scripts\Fr\TestScript.cs"/>
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/kuniyoshi/Development/FeedbackReliance/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
