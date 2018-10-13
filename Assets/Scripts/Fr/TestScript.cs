@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Fr.CloseLoopController.Parameter;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace Fr
@@ -7,106 +8,43 @@ namespace Fr
     public class TestScript : MonoBehaviour
     {
         
-        #region InternalClass
-
-        class Controller
-        {
-
-            class SystemConstant
-            {
-
-                public float D { get; private set; }
-
-                public float I { get; private set; }
-
-                public float P { get; private set; }
-
-                public SystemConstant(float p, float i, float d)
-                {
-                    P = p;
-                    I = i;
-                    D = d;
-                }
-
-                public void Update(float p, float i, float d)
-                {
-                    P = p;
-                    I = i;
-                    D = d;
-                }
-
-            }
-
-            readonly float _alpha;
-
-            readonly SystemConstant _constant;
-
-            float _i;
-
-            float _d;
-
-            float _previousError;
-
-            public Controller(float kp,
-                              float ki,
-                              float kd,
-                              float alpha)
-            {
-                _constant = new SystemConstant(kp, ki, kd);
-                _alpha = alpha;
-            }
-
-            public void Update(float p, float i, float d)
-            {
-                _constant.Update(p, i, d);
-            }
-
-            public float Work(float error, float deltaTime)
-            {
-                _i = _i + error * deltaTime;
-                _d = _alpha * (error - _previousError) / deltaTime
-                     + (1f - _alpha) * _d;
-
-                var output = _constant.P * error
-                             + _constant.I * _i
-                             + _constant.D * _d;
-
-                _previousError = error;
-
-                return output;
-            }
-
-        }
-        
-        #endregion
-
         public Camera Camera;
+
+        public Pid Parameter;
 
         public GameObject Plant;
 
+        [Range(-10f, 10f)]
         public float SetPoint;
 
-        public float Alpha;
-
+        [Range(0f, 2f)]
         public float Kp;
 
+        [Range(0f, 2f)]
         public float Ki;
 
+        [Range(0f, 2f)]
         public float Kd;
 
-        Controller _controller;
+        Pid _parameter;
+
+        CloseLoopController.Controller.Pid _controller;
 
         void Start()
         {
             Assert.IsNotNull(Plant);
-            _controller = new Controller(Kp, Ki, Kd, Alpha);
+            _parameter = Instantiate(Parameter);
+            _controller = new CloseLoopController.Controller.Pid(_parameter);
         }
 
         void Update()
         {
             var isVerbose = Time.frameCount % 101 == 0;
 
-            _controller.Update(Kp, Ki, Kd);
+            _parameter.Kp = Kp;
+            _parameter.Ki = Ki;
+            _parameter.Kd = Kd;
+            _controller.ChangeParameter(_parameter);
 
             var output = Plant.transform.position;
 
@@ -154,7 +92,7 @@ namespace Fr
             }
 
             var newPoint = Plant.transform.position;
-            newPoint.x = newPoint.x + newValue;
+            newPoint.x = newPoint.x + (float)newValue;
             Plant.transform.position = newPoint;
         }
 

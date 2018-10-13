@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Fr.Configuration
+namespace Fr.CloseLoopController.Parameter
 {
 
-    [CreateAssetMenu(menuName = "Fr/Configuration/Pid")]
+    [CreateAssetMenu(menuName = "Fr/Parameter/Pid")]
     public class Pid : ScriptableObject
     {
 
