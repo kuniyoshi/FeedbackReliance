@@ -410,12 +410,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 534669904}
+  Parameter: {fileID: 11400000, guid: 0ac762c48fa80486bab1dd92b4530572, type: 2}
   Plant: {fileID: 223370881}
-  SetPoint: 3
-  Alpha: 1
-  Kp: 0.6
-  Ki: 0.95
-  Kd: 0
+  SetPoint: 0
+  Kp: 0.04
+  Ki: 0.11
+  Kd: 0.2
 --- !u!4 &1278001058
 Transform:
   m_ObjectHideFlags: 0
