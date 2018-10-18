@@ -13,6 +13,13 @@ namespace Fr.CloseLoopController.Input
             return _data * deltaTime;
         }
 
+        public override string ToString()
+        {
+            return $"{nameof(Integrator)}{{"
+                   + $"_data: {_data}"
+                   + $"}}";
+        }
+
     }
 
 }

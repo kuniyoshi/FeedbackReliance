@@ -1,24 +1,30 @@
-using UnityEngine;
-
 namespace Fr.CloseLoopController.Parameter
 {
 
-    [CreateAssetMenu(menuName = "Fr/Parameter/Pid")]
-    public class Pid : ScriptableObject
+    public struct Pid
     {
 
-        [Range(0f, 10f)]
-        public float Kp;
+        public double D { get; }
 
-        [Range(0f, 10f)]
-        public float Ki;
+        public double I { get; }
 
-        [Range(0f, 10f)]
-        public float Kd;
+        public double P { get; }
 
-        [Range(0f, 1f)]
-        public float Alpha;
+        public Pid(double p, double i, double d)
+        {
+            P = p;
+            I = i;
+            D = d;
+        }
 
+        public override string ToString()
+        {
+            return $"{nameof(Pid)}{{"
+                   + $"P: {P}"
+                   + $", I: {I}"
+                   + $", D: {D}"
+                   + $"}}";
+        }
 
     }
 

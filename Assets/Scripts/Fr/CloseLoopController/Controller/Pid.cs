@@ -5,56 +5,23 @@ namespace Fr.CloseLoopController.Controller
 
     public class Pid
     {
-        
-        class SystemParameter
-        {
-
-            public float D { get; private set; }
-
-            public float I { get; private set; }
-
-            public float P { get; private set; }
-
-            public SystemParameter(float p, float i, float d)
-            {
-                P = p;
-                I = i;
-                D = d;
-            }
-
-            public void Update(float p, float i, float d)
-            {
-                P = p;
-                I = i;
-                D = d;
-            }
-
-        }
 
         readonly Delta _d;
 
         readonly Integrator _i;
 
-        readonly SystemParameter _parameter;
+        Parameter.Pid _parameter;
 
         public Pid(Parameter.Pid parameter)
         {
-            _parameter = new SystemParameter(
-                parameter.Kp,
-                parameter.Ki,
-                parameter.Kd
-            );
+            _parameter = parameter;
             _i = new Integrator();
             _d = new Delta();
         }
 
         public void ChangeParameter(Parameter.Pid parameter)
         {
-            _parameter.Update(
-                parameter.Kp,
-                parameter.Ki,
-                parameter.Kd
-            );
+            _parameter = parameter;
         }
 
         public double Work(double input, double deltaTime)
@@ -67,6 +34,15 @@ namespace Fr.CloseLoopController.Controller
                          + _parameter.D * d;
 
             return output;
+        }
+
+        public override string ToString()
+        {
+            return $"{nameof(Pid)}{{"
+                   + $"Parameter: {_parameter}"
+                   + $", Delta: {_d}"
+                   + $", Integrator: {_i}"
+                   + $"}}";
         }
 
     }

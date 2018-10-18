@@ -54,16 +54,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Controller\Pid.cs"/>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Filter\Fixed.cs"/>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Filter\Recursive.cs"/>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Base.cs"/>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Delta.cs"/>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Identity.cs"/>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Integrator.cs"/>
-    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Parameter\Pid.cs"/>
-    <Compile Include="Assets\Scripts\Fr\Input.cs"/>
-    <Compile Include="Assets\Scripts\Fr\TestScript.cs"/>
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Controller\Pid.cs" />
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Filter\Fixed.cs" />
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Filter\Recursive.cs" />
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Base.cs" />
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Delta.cs" />
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Identity.cs" />
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Input\Integrator.cs" />
+    <Compile Include="Assets\Scripts\Fr\CloseLoopController\Parameter\Pid.cs" />
+    <Compile Include="Assets\Scripts\Fr\ControllerParameter.cs" />
+    <Compile Include="Assets\Scripts\Fr\Input.cs" />
+    <Compile Include="Assets\Scripts\Fr\TestScript.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/kuniyoshi/Development/FeedbackReliance/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

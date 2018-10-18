@@ -14,6 +14,13 @@ namespace Fr.CloseLoopController.Input
             return output;
         }
 
+        public override string ToString()
+        {
+            return $"{nameof(Delta)}{{"
+                   + $"_previous: {_previous}"
+                   + $"}}";
+        }
+
     }
 
 }
