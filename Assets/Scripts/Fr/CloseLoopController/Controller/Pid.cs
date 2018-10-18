@@ -27,7 +27,8 @@ namespace Fr.CloseLoopController.Controller
         public double Work(double input, double deltaTime)
         {
             var i = _i.Work(input * deltaTime, deltaTime);
-            var d = _d.Work(input, deltaTime) / deltaTime;
+            var d = _d.Work(input, deltaTime);
+//            var d = _d.Work(input, deltaTime) / deltaTime;
 
             var output = _parameter.P * input
                          + _parameter.I * i
